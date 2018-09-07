@@ -3,7 +3,7 @@ CFLAGS := -g -std=c99 -Wall -Wextra -Wpedantic -fasm
 CFLAGS += -m32 -O1 -ffreestanding
 
 SRCS := kern0.c  # usar wildcard *.c
-OBJS := kern0.o  # usar patsubst sobre SRCS
+OBJS := $(subst .c,.o,$(SRCS))  # usar patsubst sobre SRCS
 
 kern0: boot.o $(OBJS)
 	ld -m elf_i386 -Ttext 0x100000 --entry comienzo $^ -o $@

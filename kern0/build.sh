@@ -8,4 +8,4 @@ ld -m elf_i386 -Ttext 0x100000 kern0.o boot.o -o kern0
 #qemu-system-i386 -serial mon:stdio -kernel kern0
 
 # Debug
-qemu-system-i386 -serial mon:stdio -S -kernel kern0 -gdb tcp:127.0.0.1:7508
+qemu-system-i386 -serial mon:stdio -S -kernel kern0 -gdb tcp:127.0.0.1:7508 

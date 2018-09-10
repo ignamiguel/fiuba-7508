@@ -6,9 +6,6 @@ static void vga_write(const volatile char *s, int linea, int color) {
     char *p = s;
     *(p + 120) += 88;
     volatile char *buf = p;
-    
-    *buf++ = linea;
-    *buf++ = color;
 
     *buf++ = 79;
     *buf++ = 47;

@@ -14,16 +14,16 @@ CC := gcc
 
 # $(subst ee,EE,feet on the street) > ‘fEEt on the strEEt’.
 # $(patsubst pattern,replacement,text)
-PROG := $(patsubst %.S, %, $(ASMS)) # patsubst %.S > %
-PROG += $(patsubst %.c, %, $(SRCS)) # patsubst %.c > %
+PROG := $(patsubst %.S,%,$(ASMS)) # patsubst %.S > %
+PROG += $(patsubst %.c,%,$(SRCS)) # patsubst %.c > %
 
 all: $(PROG)
 
 show: 
-	@echo $(PROG) $(CC)
+	@echo "./$(PROG)"
 
 run:
-	$(PROG)
+	./hello
 
 clean:
 	rm -f $(PROG)

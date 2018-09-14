@@ -5,19 +5,20 @@
 ;//     ssize_t write(int fd, const void *buf, size_t count);
 ;//
 main:
-        // Call convention: arguments on the stack (reverse order).
+;       // Call convention: arguments on the stack (reverse order).
         push $len
         push $msg
         push $1
 
-        // No declaration needed; asm assumes symbols always exist.
-        call write
+;       // No declaration needed; asm assumes symbols always exist.
+;       // call write
+        push $p_ret
+        jmp write
 
-        push $7
+p_ret:  push $7
         call _exit
 
 .data
 msg:
         .ascii "Hello, world!\n"
-
 .set len, . - msg
